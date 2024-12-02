@@ -74,8 +74,13 @@ figure img {
 
 /* boxes ja sectionit */
 #boxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 #boxes > * {
+  flex-grow: 1;
+  flex-basis: 100%;
   border: white solid 1rem;
   margin: 0 -1rem;
 }
@@ -90,31 +95,33 @@ figure img {
 #boxes section h2 span {
   float: right;
 }
-
-/* #news .kapea ja .levea */
 #news {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   background-color: white;
 }
-#news > * {
+/* #news */
+.parent {
+  display: flex; /* Flexbox для размещения двух колонок */
+  flex-direction: row; /* Горизонтальное расположение */
+  gap: 2rem; /* Расстояние между колонками */
+  /*flex-wrap: wrap;*/
+}
+/*.parent > * {
   flex-grow: 1;
   flex-basis: 0;
+}*/
+.parent .kapea {
+  width: 10%; /* Узкая колонка занимает 10% */
+  text-align: left; /* Выравнивание текста по левому краю */
+  font-weight: bold; /* Выделяем текст */
+  /* margin-left: 1rem; Отодвигаем от левого края */
 }
-#news h2 {
-  flex-basis: 100%;
+.parent .levea {
+  width: 90%; /* Широкая колонка занимает оставшиеся 90% */
+  text-align: left; /* Выравнивание текста по левому краю */
 }
-#news .kapea {
-  flex-grow: 1;
-  padding: 1 rem;
-}
-#news .levea {
-  flex-grow: 6;
-  padding: 1rem;
-}
+
 /* footer*/
-Footer {
+footer {
   padding: 0 1 rem;
 }
 /* footer .some-nav */
@@ -142,10 +149,77 @@ footer .some-nav {
   body {
     background-color: lightblue;
   }
+
+  nav ul > * {
+    flex-basis: 0;
+  }
+  /* Vision teksi ja kuva */
+  #vision {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border: 1rem solid white;
+  }
+  #vision > * {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  #vision section {
+    background-image: url("./images/tausta/light-brown-background.jpeg");
+    background-color: antiquewhite;
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #vision figure {
+    display: block;
+  }
+  #boxes #special,
+  #boxes #events {
+    flex-basis: 0;
+  }
+  #boxes > * {
+    margin: 0;
+  }
+  #special {
+    border-inline-end: 0;
+  }
+  #news {
+    flex-basis: 100%;
+  }
 }
 /* Desktopin säännöt */
 @media only screen and (min-width: 769px) {
   body {
-    background-color: yellow;
+    background-color: orange;
+  }
+
+  #vision {
+    margin: 1rem 1rem 0 1rem;
+    border: 1rem solid white;
+  }
+
+  #vision section p {
+    font-size: 3rem;
+    padding-left: 2rem;
+  }
+
+  #boxes {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+  }
+
+  #boxes > * {
+    flex-grow: 1;
+    flex-basis: 0px;
+  }
+
+  footer {
+    padding: 0 1rem 1rem 1rem;
+  }
+  #boxes #events {
+    border-inline-end: 0;
   }
 }
