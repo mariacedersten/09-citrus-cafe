@@ -57,6 +57,7 @@ nav a {
 /* kuvat responsiivisiksi */
 figure img {
   max-width: 100%;
+  box-shadow: 0 2px 0px white;
 }
 
 /* vision teksti ja kuva */
@@ -122,7 +123,7 @@ figure img {
 
 /* footer*/
 footer {
-  padding: 0 1 rem;
+  padding: 0 1rem;
 }
 /* footer .some-nav */
 footer .some-nav {
